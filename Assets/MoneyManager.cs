@@ -6,6 +6,7 @@ public class MoneyManager : MonoBehaviour
 {
     public float money;
     public UIManager uiManager;
+   
 
     void Start()
     {
