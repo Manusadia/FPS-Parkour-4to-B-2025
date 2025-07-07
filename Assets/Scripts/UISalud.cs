@@ -6,7 +6,12 @@ using UnityEngine.UI;
 
 public class UISalud : MonoBehaviour
 {
-    public Text textoSalud; // O TMP_Text si usás TextMeshPro
+    public TextMeshProUGUI textoSalud; // O TMP_Text si usás TextMeshPro
+
+    private void Start()
+    {
+        Debug.Log(gameObject.name);
+    }
 
     public void ActualizarVida(int vida)
     {

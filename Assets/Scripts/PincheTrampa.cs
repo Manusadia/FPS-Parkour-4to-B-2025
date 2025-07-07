@@ -5,11 +5,14 @@ public class PincheTrampa : MonoBehaviour
     public int dano = 10;
 
     void OnTriggerEnter(Collider other)
+
     {
-        if (other.CompareTag("Player"))
+
+     
+        if (other.gameObject.CompareTag("Player"))
         {
             // Buscar el componente de salud
-            SaludManager salud = other.GetComponent<SaludManager>();
+            SaludManager salud = other.gameObject.GetComponent<SaludManager>();
             if (salud == null)
             {
                 salud = FindObjectOfType<SaludManager>();
@@ -18,7 +21,7 @@ public class PincheTrampa : MonoBehaviour
             if (salud != null)
             {
                 salud.RecibirDano(dano);
-                Debug.Log("Trampa activada: se bajó vida");
+                Debug.Log("se bajó vida");
             }
 
             // Destruir la trampa
