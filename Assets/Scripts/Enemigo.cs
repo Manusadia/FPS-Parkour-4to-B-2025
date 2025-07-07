@@ -1,25 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    public float cost = 5;
-    public MoneyManager moneyManager;
+    public int dano = 20;
+    private SaludManager saludManager;
 
     void Start()
     {
-        moneyManager = FindObjectOfType<MoneyManager>();
+        saludManager = FindObjectOfType<SaludManager>();
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (moneyManager.UpdateMoney(-cost))
+            if (saludManager != null)
             {
-                Destroy(gameObject);
+                saludManager.RecibirDano(dano);
             }
+
+            Destroy(gameObject); // Esto es opcional, podés sacarlo si no querés que desaparezca
         }
     }
 }

@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UISalud : MonoBehaviour
 {
-    public TextMeshProUGUI Txt_Salud;
+    public Text textoSalud; // O TMP_Text si usás TextMeshPro
 
-    public void UpdateMoneyText(string money)
+    public void ActualizarVida(int vida)
     {
-        Txt_Salud.text = "salud" + money;
+        textoSalud.text = "Salud: " + vida.ToString();
     }
 }

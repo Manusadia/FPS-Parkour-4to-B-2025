@@ -19,7 +19,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: PincheOxidado4toB
-    second: {fileID: 2800000, guid: 2b2e7f21d9dc433429ac43ebf5d76252, type: 3}
+    second: {fileID: 2800000, guid: 711bd3b46a11507439bd43ffda06f588, type: 3}
   materials:
     importMaterials: 1
     materialName: 0

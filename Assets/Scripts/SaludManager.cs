@@ -1,27 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SaludManager : MonoBehaviour
 {
-    public int salud;
-    public UIManager uiManager;
+    public int vidaActual = 100;
+    public UISalud uiSalud;
 
     void Start()
     {
-        uiManager = FindObjectOfType<UIManager>();
+        if (uiSalud == null)
+        {
+            uiSalud = FindObjectOfType<UISalud>();
+        }
+
+        if (uiSalud != null)
+        {
+            uiSalud.ActualizarVida(vidaActual);
+        }
     }
 
-    public bool UpdateSalud(int vida)
+    public void RecibirDano(int cantidad)
     {
-        if (salud <= vida)
+        vidaActual -= cantidad;
+
+        if (vidaActual < 0)
+            vidaActual = 0;
+
+        if (uiSalud != null)
         {
-            Debug.Log("No tenes mas vida, Moriste");
-            return false;
+            uiSalud.ActualizarVida(vidaActual);
         }
-        salud -= vida;
-        uiManager.UpdateSaludText(vida.ToString());
-        return true;
-           
+
+        if (vidaActual <= 0)
+        {
+            // Acá podés poner morir, reiniciar nivel, etc.
+            Debug.Log("Jugador muerto.");
+        }
     }
 }
+
